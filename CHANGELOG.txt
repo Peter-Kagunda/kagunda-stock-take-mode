@@ -1,0 +1,85 @@
+==================================================
+Changelog: Stock Take Mode for WooCommerce
+==================================================
+
+All notable changes to this project are documented in this file.
+
+--------------------------------------------------
+[1.0.1] - 2026-09-21
+--------------------------------------------------
+Display name
+- The plugin's display name is now "Stock Take Mode for WooCommerce".
+  The plugin slug and text domain (kagunda-stock-take-mode-for-woocommerce)
+  are unchanged.
+
+New
+- Status card at the top of the settings screen with one-click "Start now"
+  and "Stop now", plus a "Turn off" link in the admin toolbar.
+- "Preview as customer" button (shows the restricted store to an
+  administrator without logging out).
+- Banner color presets, live banner preview, banner position (sticky top,
+  top, bottom) and scope (all pages, or shop pages only).
+- Quick "ends in 1 hour / 4 hours / 1 day / 3 days" scheduling buttons.
+- Waitlist search, per-subscriber removal, "Clear list" and "Email everyone
+  now" tools.
+- Waitlist privacy note under the email field.
+- WordPress personal data export/erase support and suggested privacy policy
+  text for waitlist emails.
+- Countdown now uses the server clock and reloads the page shortly after it
+  reaches zero.
+- {shop_url} placeholder for the re-open email.
+- Developer hooks: kagstm_is_window_active, kagstm_message,
+  kagstm_show_banner, kagstm_capability, kagstm_broadcast_batch_size,
+  kagstm_waitlist_max, kagstm_waitlist_rate_limit, kagstm_started,
+  kagstm_ended, kagstm_waitlist_subscribed.
+
+Improved
+- Re-open emails are queued and sent in small background batches.
+- Start/end notifications are scheduled with WP-Cron so they fire on time
+  even when nobody is visiting the store.
+- Purchasing is blocked in the Cart and Checkout blocks (Store API) and on
+  classic checkout submissions, in addition to the existing protections.
+- Accessibility of the banner and waitlist form.
+- Modern, responsive settings screen; tab choice is remembered.
+- Uses WooCommerce's bundled selectWoo instead of a bundled select2 copy.
+- Settings are registered with typed defaults and validated in one place;
+  imports use the same validation and are limited to 256 KB.
+- Plugin code split into focused classes under /includes.
+
+Fixed
+- An administrator (or other bypass role) browsing the store during a stock
+  take could mark it as "ended" and trigger the waitlist broadcast early.
+- Admin bar indicator and dashboard widget showed the wrong status for
+  administrators.
+- In "hide add-to-cart buttons" mode, excepted products lost their button.
+- Waitlist sign-ups are now rate limited, honeypot protected, size capped
+  and no longer autoloaded.
+- CSV export neutralises spreadsheet formulas.
+- Uninstall removes transients and scheduled events as well as options.
+- Playground blueprint now configures the demo store correctly.
+
+--------------------------------------------------
+[1.0.0] - 2026-09-13
+--------------------------------------------------
+- Initial public release.
+- Core purchasing restriction engine with scheduled start/end windows.
+- Product and product-category exception lists.
+- Role-based bypass for store staff.
+- Live countdown timer banner for frontend notifications.
+- Waitlist lead capture form and CSV export.
+- Automatic re-opening email broadcast to waitlist subscribers.
+- Admin bar status indicator and dashboard analytics widget.
+- Settings import/export as JSON.
+- WooCommerce log integration (WooCommerce > Status > Logs).
+
+--------------------------------------------------
+Roadmap
+--------------------------------------------------
+- Recurring stock-take windows.
+- Per-product "keep purchasable during stock take" checkbox.
+
+--------------------------------------------------
+How to update
+--------------------------------------------------
+Update from the WordPress dashboard (Dashboard > Updates or Plugins). Your
+settings are preserved.
